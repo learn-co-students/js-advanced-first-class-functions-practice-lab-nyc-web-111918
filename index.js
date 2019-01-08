@@ -26,13 +26,17 @@ function driversByName(drivers){
   return test;
 }
 
-function getSum(total, driver){
-  return total+driver.revenue;
-}
+// function getSum(total, driver){
+//   return total+driver.revenue;
+// }
 
 function totalRevenue(drivers){
-  return drivers.reduce(getSum, 0);
+  let reduced = drivers.reduce(function(acc, curr){
+    return (acc + curr.revenue);
+  }, 0);
+  return reduced;
 }
+
 function averageRevenue(drivers){
-  return drivers.reduce(getSum, 0)/drivers.length;
+  return (totalRevenue(drivers)/drivers.length);
 }
